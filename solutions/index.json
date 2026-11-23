@@ -1,0 +1,7 @@
+---
+layout: null
+---
+[{% assign separator = '' %}
+{% for file in site.static_files %}{% assign extension = file.extname | downcase %}{% assign folder = file.path | slice: 0, 11 %}
+  {% if extension == '.pdf' and folder == '/solutions/' %}{{ separator }}{{ file.path | jsonify }}{% assign separator = ',' %}{% endif %}
+{% endfor %}]
